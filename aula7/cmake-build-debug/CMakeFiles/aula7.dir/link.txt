@@ -1,0 +1,1 @@
+/usr/bin/c++  -g   CMakeFiles/aula7.dir/src/main.cpp.o CMakeFiles/aula7.dir/src/app.cpp.o CMakeFiles/aula7.dir/src/diary.cpp.o  -o aula7 

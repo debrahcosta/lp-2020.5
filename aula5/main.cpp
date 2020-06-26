@@ -19,7 +19,7 @@ std::string get_current_time() { return format_current_date("%H:%M:%S"); }
 
 void show_usage(const std::string &prog_name);
 
-void verifica_ocorrencia(std::ifstream &file, int ocorrencia);
+void verifica_ocorrencia(std::ifstream &file, int &ocorrencia);
 
 void list_diary(std::ifstream &file,std::string &message);
 
@@ -27,7 +27,7 @@ int verifica_abertura(std::ifstream &file);
 
 int verifica_criacao(std::ofstream &file);
 
-void write_message(std::ofstream &arquivo_saida,int ocorrencia, std::string &message);
+void write_message(std::ofstream &arquivo_saida,int &ocorrencia, std::string &message);
 
 int main(int argc, char *argv[]){
 
@@ -67,6 +67,8 @@ int main(int argc, char *argv[]){
 
     verifica_ocorrencia(file, ocorrencia);
 
+    std::cout<<"ocorrencia: "<<ocorrencia<<std::endl;
+
     write_message(arquivo_saida,ocorrencia, message);
 
     arquivo_saida.close(); /*só preciso do close pra fechar em momento específico*/
@@ -79,11 +81,12 @@ void show_usage(const std::string &prog_name) {
     std::cout << "Uso: " << prog_name << " add <mensagem> ou "<<prog_name<<" list" << std::endl;
 }
 
-void verifica_ocorrencia(std::ifstream &file, int ocorrencia){
+void verifica_ocorrencia(std::ifstream &file, int &ocorrencia){
     while(!file.eof()){
         std::string line;
         std::getline(file,line);
-        std::string data=get_current_date();
+        std::string data="# ";
+              data += get_current_date();
         if(data==line){
             ocorrencia++;
         }
@@ -114,9 +117,9 @@ int verifica_criacao(std::ofstream &file){
     return 0;
 }
 
-void write_message(std::ofstream &arquivo_saida, int ocorrencia, std::string &message){
+void write_message(std::ofstream &arquivo_saida, int &ocorrencia, std::string &message){
     if(ocorrencia==0) {
-        arquivo_saida << std::endl<<get_current_date() << std::endl << std::endl << "- " << get_current_time() << " " << message << std::endl;
+        arquivo_saida << std::endl<<"# "<<get_current_date() << std::endl << std::endl << "- " << get_current_time() << " " << message << std::endl;
         verifica_criacao(arquivo_saida);
     } else{
         arquivo_saida << "- " << get_current_time() << " " << message<< std::endl;

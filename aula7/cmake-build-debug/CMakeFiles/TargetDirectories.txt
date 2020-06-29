@@ -1,3 +1,0 @@
-/home/deborah/CLionProjects/lp-2020.5/aula7/cmake-build-debug/CMakeFiles/rebuild_cache.dir
-/home/deborah/CLionProjects/lp-2020.5/aula7/cmake-build-debug/CMakeFiles/edit_cache.dir
-/home/deborah/CLionProjects/lp-2020.5/aula7/cmake-build-debug/CMakeFiles/aula7.dir

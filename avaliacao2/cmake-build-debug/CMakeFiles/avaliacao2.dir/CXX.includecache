@@ -6,12 +6,6 @@
 
 #IncludeRegexTransform: 
 
-/home/deborah/CLionProjects/lp-2020.5/avaliacao2/include/app.h
-diary.h
-/home/deborah/CLionProjects/lp-2020.5/avaliacao2/include/diary.h
-string
--
-
 /home/deborah/CLionProjects/lp-2020.5/avaliacao2/include/date.h
 string
 -
@@ -42,18 +36,6 @@ string
 string
 -
 
-/home/deborah/CLionProjects/lp-2020.5/avaliacao2/src/app.cpp
-../include/app.h
-/home/deborah/CLionProjects/lp-2020.5/avaliacao2/include/app.h
-iostream
--
-
-/home/deborah/CLionProjects/lp-2020.5/avaliacao2/src/date.cpp
-../include/date.h
-/home/deborah/CLionProjects/lp-2020.5/avaliacao2/include/date.h
-sstream
--
-
 /home/deborah/CLionProjects/lp-2020.5/avaliacao2/src/diary.cpp
 ../include/diary.h
 /home/deborah/CLionProjects/lp-2020.5/avaliacao2/include/diary.h
@@ -61,22 +43,6 @@ iostream
 -
 string
 -
-
-/home/deborah/CLionProjects/lp-2020.5/avaliacao2/src/main.cpp
-../include/app.h
-/home/deborah/CLionProjects/lp-2020.5/avaliacao2/include/app.h
-iostream
--
-sstream
--
-string
--
-
-/home/deborah/CLionProjects/lp-2020.5/avaliacao2/src/time.cpp
-../include/time.h
-/home/deborah/CLionProjects/lp-2020.5/avaliacao2/include/time.h
-../include/date.h
-/home/deborah/CLionProjects/lp-2020.5/avaliacao2/include/date.h
 sstream
 -
 

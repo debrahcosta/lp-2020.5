@@ -24,6 +24,11 @@ CMakeFiles/avaliacao2.dir/src/main.cpp.o: ../include/message.h
 CMakeFiles/avaliacao2.dir/src/main.cpp.o: ../include/time.h
 CMakeFiles/avaliacao2.dir/src/main.cpp.o: ../src/main.cpp
 
+CMakeFiles/avaliacao2.dir/src/message.cpp.o: ../include/date.h
+CMakeFiles/avaliacao2.dir/src/message.cpp.o: ../include/message.h
+CMakeFiles/avaliacao2.dir/src/message.cpp.o: ../include/time.h
+CMakeFiles/avaliacao2.dir/src/message.cpp.o: ../src/message.cpp
+
 CMakeFiles/avaliacao2.dir/src/time.cpp.o: ../include/date.h
 CMakeFiles/avaliacao2.dir/src/time.cpp.o: ../include/time.h
 CMakeFiles/avaliacao2.dir/src/time.cpp.o: ../src/time.cpp

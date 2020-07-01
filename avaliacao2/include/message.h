@@ -15,5 +15,6 @@ struct Message{
     Date date;
     Time time;
 
+    void set_from_string(const std::string& msg);
 };
 #endif //AULA7_MESSAGE_H

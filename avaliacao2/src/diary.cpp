@@ -4,6 +4,7 @@
 #include "../include/diary.h"
 #include <iostream>
 #include <string>
+#include <sstream>
 
 Diary::Diary(const std::string& name) : filename(name), messages(nullptr), messages_size(0), messages_capacity(10)
 {
@@ -21,6 +22,7 @@ int Diary::verifica_abertura(std::string &filename){
         std::cerr <<"Arquivo não existe ou sem permissão de leitura"<<std::endl;
         return 1;
     }
+    load(filename);
     return 0;
 
 }
@@ -30,9 +32,53 @@ int Diary:: open_diary(std::string &action) {
     std::cin>>filename;
     filename+=".md";
     if(verifica_abertura(filename)&&action=="add"){
-        create_diary(filename);
+        if (create_diary(filename)){
+            return 1;
+        }else{
+            return 0;
+        }
     };
+}
 
+void Diary::verifica_espaco(int &i) {
+    if(i==(messages_capacity)) {
+        size_t capacity = messages_capacity*2;
+        Message* new_messages = new Message[capacity];
+        for (int j = 0; j < messages_size; ++j) {
+            new_messages[j]=messages[j];
+        }
+        delete [] messages;
+        messages_capacity=capacity;
+        messages = new Message[messages_capacity];
+        for (int j = 0; j < messages_size; ++j) {
+            messages[j]=new_messages[j];
+        }
+        load(filename);
+
+    }
+}
+
+void Diary:: load(std::string &filename) {
+    std::ifstream file(filename,std::ios::app);
+    int i=0;
+    while (!file.eof()&&(i<messages_capacity)){
+        std::string line;
+        std::getline(file, line);
+
+        if(line[0]=='#'){
+            messages[i].date.set_from_string(line);
+        }
+        if(line[0]=='-'){
+            messages[i].set_from_string(line);
+            messages[i].time.set_from_string(line);
+            if (messages[i].date.day==0){
+                messages[i].date=messages[i-1].date;
+            }
+            i++;
+        }
+        verifica_espaco(i);
+        messages_size=i;
+    }
 }
 
 int Diary::create_diary(std::string &filename){
@@ -60,15 +106,12 @@ int Diary::create_diary(std::string &filename){
 }
 
 void Diary::add() {
-    Message m;
-    std::cout<<"Insira a mensagem: "<<std::endl;
-    std::cin>>m.content;
-    Date d;
-    std::string data = d.get_current_date();
-    Time t;
-    std::string horario= t.get_current_time();
-    write(filename,m);
-    messages[messages_size] = m;
+    std::cout<<"Insira a mensagem:"<<std::endl;
+    std::cin.ignore();
+    std::getline(std::cin, messages[messages_size].content);
+    messages[messages_size].date.get_current_date();
+    messages[messages_size].time.get_current_time();
+    write(filename);
     messages_size++;
 
 }
@@ -78,15 +121,11 @@ void Diary::add(const std::string &message)
     if (messages_size >= messages_capacity) {
         return;
     }
-    Message m;
-    m.content = message;
-    Date d;
-    std::string data = d.get_current_date();
-    Time t;
-    std::string horario= t.get_current_time();
-    write(filename,m);
 
-    messages[messages_size] = m;
+    messages[messages_size].content = message;
+    messages[messages_size].date.get_current_date();
+    messages[messages_size].time.get_current_time();
+    write(filename);
     messages_size++;
 }
 
@@ -115,15 +154,16 @@ int Diary::verifica_data(std::ifstream &file, Message message){
 }
 
 
-void Diary::write(std::string &filename, Message message) {
+void Diary::write(std::string &filename) {
     std::ifstream file(filename,std::ios::app);
     std::ofstream saida(filename,std::ios::app);
-    if(verifica_data(file,message)==1){
-    saida<<"- "<<message.time.get_current_time()<<" "<<message.content<<std::endl;
+    if(verifica_data(file,messages[messages_size])==1){
+        saida<<"- "<<messages[messages_size].time.get_current_time()<<" "<<messages[messages_size].content<<std::endl;
     }else{
-        saida<<std::endl<<std::endl<<"# "<<message.date.get_current_date()<<std::endl<<std::endl;
-        saida<<"- "<<message.time.get_current_time()<<" "<<message.content<<std::endl;
+        saida<<std::endl<<std::endl<<"# "<<messages[messages_size].date.get_current_date()<<std::endl<<std::endl;
+        saida<<"- "<<messages[messages_size].time.get_current_time()<<" "<<messages[messages_size].content<<std::endl;
     }
+
     std::cout<<"Mensagem inserida com sucesso"<<std::endl;
 
 }

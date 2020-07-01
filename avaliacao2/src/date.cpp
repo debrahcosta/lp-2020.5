@@ -4,6 +4,8 @@
 #include "../include/date.h"
 
 #include <sstream>
+#include <iostream>
+
 
 Date::Date() : year(0), month(0), day(0) {}
 
@@ -12,11 +14,16 @@ void Date::set_from_string(const std::string& date)
     char discard;
     std::stringstream stream(date);
 
+
+
+    stream >> discard;
     stream >> day;
     stream >> discard;
     stream >> month;
     stream >> discard;
     stream >> year;
+
+
 }
 
 std::string Date::to_string()

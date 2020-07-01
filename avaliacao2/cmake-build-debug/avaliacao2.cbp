@@ -109,6 +109,9 @@
 		<Unit filename="/home/deborah/CLionProjects/lp-2020.5/avaliacao2/src/main.cpp">
 			<Option target="avaliacao2"/>
 		</Unit>
+		<Unit filename="/home/deborah/CLionProjects/lp-2020.5/avaliacao2/src/message.cpp">
+			<Option target="avaliacao2"/>
+		</Unit>
 		<Unit filename="/home/deborah/CLionProjects/lp-2020.5/avaliacao2/src/time.cpp">
 			<Option target="avaliacao2"/>
 		</Unit>

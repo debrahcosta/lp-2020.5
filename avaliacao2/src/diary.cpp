@@ -134,7 +134,9 @@ void Diary:: list(std::string &filename) {
     while (!file.eof()){
         std::string line;
         std::getline(file,line);
-        std::cout<<line<<std::endl;
+        if(line[0]=='-'){
+            std::cout<<line<<std::endl;
+        }
     }
 }
 
@@ -165,6 +167,5 @@ void Diary::write(std::string &filename) {
     }
 
     std::cout<<"Mensagem inserida com sucesso"<<std::endl;
-
 }
 

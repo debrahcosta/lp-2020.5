@@ -1,0 +1,22 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/deborah/CLionProjects/lp-2020.5/aula16/Cliente.hpp
+string
+-
+
+/home/deborah/CLionProjects/lp-2020.5/aula16/Conta.hpp
+Cliente.hpp
+/home/deborah/CLionProjects/lp-2020.5/aula16/Cliente.hpp
+
+/home/deborah/CLionProjects/lp-2020.5/aula16/main.cpp
+iostream
+-
+Conta.hpp
+/home/deborah/CLionProjects/lp-2020.5/aula16/Conta.hpp
+

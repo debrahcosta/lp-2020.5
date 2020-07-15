@@ -26,6 +26,7 @@ struct Diary{
     void load(std::string &filename);
     void add();
     void list(std::string &filename);
+    void search(std::string &filename);
     void add(const std::string &message);
     int verifica_data(std::ifstream &file, Message message);
     void write(std::string &filename);

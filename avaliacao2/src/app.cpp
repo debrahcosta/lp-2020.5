@@ -32,6 +32,10 @@ int App::run(int argc, char* argv[]) {
         if(!diary.open_diary(action)){
             diary.list(diary.filename);
         }
+    }else if(action=="search"){
+        if(!diary.open_diary(action)) {
+            diary.search(diary.filename);
+        }
     }else{
         return show_usage(prog_name);
     }
@@ -40,7 +44,7 @@ int App::run(int argc, char* argv[]) {
 }
 
 int App::show_usage(const std::string prog_name){
-    std::cout << "Uso: " <<prog_name<< " add <mensagem> ou "<<prog_name<<" list" << std::endl;
+    std::cout << "Uso: " <<prog_name<< " add <mensagem> ou "<<prog_name<<" list ou " <<prog_name<<" search"<< std::endl;
     return 1;
 }
 

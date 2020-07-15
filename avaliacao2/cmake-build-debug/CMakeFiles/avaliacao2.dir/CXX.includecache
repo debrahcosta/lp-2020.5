@@ -6,6 +6,12 @@
 
 #IncludeRegexTransform: 
 
+/home/deborah/CLionProjects/lp-2020.5/avaliacao2/include/app.h
+diary.h
+/home/deborah/CLionProjects/lp-2020.5/avaliacao2/include/diary.h
+string
+-
+
 /home/deborah/CLionProjects/lp-2020.5/avaliacao2/include/date.h
 string
 -
@@ -36,13 +42,9 @@ string
 string
 -
 
-/home/deborah/CLionProjects/lp-2020.5/avaliacao2/src/diary.cpp
-../include/diary.h
-/home/deborah/CLionProjects/lp-2020.5/avaliacao2/include/diary.h
+/home/deborah/CLionProjects/lp-2020.5/avaliacao2/src/app.cpp
+../include/app.h
+/home/deborah/CLionProjects/lp-2020.5/avaliacao2/include/app.h
 iostream
--
-string
--
-sstream
 -
 

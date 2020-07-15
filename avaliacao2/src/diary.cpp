@@ -31,11 +31,15 @@ int Diary:: open_diary(std::string &action) {
     std::cout<<"Insira o nome do diário: "<<std::endl;
     std::cin>>filename;
     filename+=".md";
-    if(verifica_abertura(filename)&&action=="add"){
-        if (create_diary(filename)){
-            return 1;
+    if(verifica_abertura(filename)){
+        if(action=="add") {
+            if (create_diary(filename)) {
+                return 1;
+            } else {
+                return 0;
+            }
         }else{
-            return 0;
+            return 1;
         }
     };
 }
@@ -137,6 +141,25 @@ void Diary:: list(std::string &filename) {
         if(line[0]=='-'){
             std::cout<<line<<std::endl;
         }
+    }
+}
+
+void Diary:: search(std::string &filename) {
+    std::string palavra;
+    std::cout<<"Insira a palavra que deseja buscar"<<std::endl;
+    std::cin>>palavra;
+    std::ifstream file(filename,std::ios::app);
+    int i=0;
+    while (!file.eof()){
+        std::string line;
+        std::getline(file,line);
+        if (line.find(palavra)!= std::string::npos){
+            std::cout<<line<<std::endl;
+            i++;
+        }
+    }
+    if (i==0){
+        std::cout<<"Nenhuma ocorrência de \""<<palavra<<"\" encontrada"<<std::endl;
     }
 }
 

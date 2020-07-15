@@ -1,0 +1,3 @@
+*.o
+**/*.o
+/cmake-build-debug

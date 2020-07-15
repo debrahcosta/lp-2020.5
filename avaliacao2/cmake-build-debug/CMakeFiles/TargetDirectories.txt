@@ -1,3 +1,0 @@
-/home/deborah/CLionProjects/lp-2020.5/avaliacao2/cmake-build-debug/CMakeFiles/rebuild_cache.dir
-/home/deborah/CLionProjects/lp-2020.5/avaliacao2/cmake-build-debug/CMakeFiles/edit_cache.dir
-/home/deborah/CLionProjects/lp-2020.5/avaliacao2/cmake-build-debug/CMakeFiles/avaliacao2.dir
